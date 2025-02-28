@@ -2,26 +2,29 @@ package ru.yandexpraktikum.all_notes.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import ru.yandexpraktikum.all_notes.domain.interactors.DeleteNoteInteractor
-import ru.yandexpraktikum.all_notes.domain.interactors.FetchAllNotesInteractor
+import ru.yandexpraktikum.all_notes.domain.interactors.DeleteNoteUsecase
+import ru.yandexpraktikum.all_notes.domain.interactors.FetchAllNotesUsecase
 import ru.yandexpraktikum.core.presentation.mappers.PresentationNoteMapper
 import ru.yandexpraktikum.core.presentation.model.NoteUi
+import javax.inject.Inject
 
-class AllNotesViewModel(
-    private val fetchAllNotesInteractor: FetchAllNotesInteractor,
-    private val deleteNoteInteractor: DeleteNoteInteractor,
+@HiltViewModel
+class AllNotesViewModel @Inject constructor(
+    private val fetchAllNotesUsecase: FetchAllNotesUsecase,
+    private val deleteNoteUsecase: DeleteNoteUsecase,
     private val noteMapper: PresentationNoteMapper
 ) : ViewModel() {
 
-    val allNotes = fetchAllNotesInteractor().map { list ->
+    val allNotes = fetchAllNotesUsecase().map { list ->
         list.map { noteMapper.mapToUi(it) }
     }
 
     fun deleteNote(note: NoteUi) {
         viewModelScope.launch {
-            deleteNoteInteractor(
+            deleteNoteUsecase(
                 noteMapper.mapToDomain(note)
             )
         }
