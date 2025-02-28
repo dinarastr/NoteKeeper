@@ -3,6 +3,6 @@ package ru.yandexpraktikum.all_notes.domain.interactors
 import kotlinx.coroutines.flow.Flow
 import ru.yandexpraktikum.core.domain.model.Note
 
-interface FetchAllNotesInteractor {
+interface FetchAllNotesUsecase {
     operator fun invoke(): Flow<List<Note>>
 }
