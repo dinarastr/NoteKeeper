@@ -1,7 +1,7 @@
-package ru.yandexpraktikum.add_note.domain.interactors
+package ru.yandexpraktikum.all_notes.domain.interactors
 
 import ru.yandexpraktikum.core.domain.model.Note
 
-interface AddNoteInteractor {
+interface DeleteNoteUsecase {
     suspend operator fun invoke(note: Note)
 }
