@@ -4,8 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import ru.yandexpraktikum.add_note.domain.interactors.AddNoteUsecase
 import ru.yandexpraktikum.core.presentation.mappers.PresentationNoteMapper
+import javax.inject.Inject
 
-class AddNoteViewModelFactory(
+class AddNoteViewModelFactory @Inject constructor(
     private val addNoteUsecase: AddNoteUsecase,
     private val noteMapper: PresentationNoteMapper
 ) : ViewModelProvider.Factory {

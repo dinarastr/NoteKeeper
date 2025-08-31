@@ -2,8 +2,11 @@ package ru.yandexpraktikum.core.presentation.mappers
 
 import ru.yandexpraktikum.core.domain.model.Note
 import ru.yandexpraktikum.core.presentation.model.NoteUi
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class PresentationNoteMapper {
+@Singleton
+class PresentationNoteMapper @Inject constructor() {
     fun mapToUi(note: Note): NoteUi {
         return NoteUi(
             id = note.id,

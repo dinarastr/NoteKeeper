@@ -5,8 +5,9 @@ import androidx.lifecycle.ViewModelProvider
 import ru.yandexpraktikum.all_notes.domain.interactors.DeleteNoteUsecase
 import ru.yandexpraktikum.all_notes.domain.interactors.FetchAllNotesUsecase
 import ru.yandexpraktikum.core.presentation.mappers.PresentationNoteMapper
+import javax.inject.Inject
 
-class AllNotesViewModelFactory(
+class AllNotesViewModelFactory @Inject constructor(
     private val fetchAllNotesUsecase: FetchAllNotesUsecase,
     private val deleteNoteUsecase: DeleteNoteUsecase,
     private val noteMapper: PresentationNoteMapper

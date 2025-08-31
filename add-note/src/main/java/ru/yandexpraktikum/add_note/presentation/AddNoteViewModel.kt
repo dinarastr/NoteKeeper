@@ -6,8 +6,9 @@ import kotlinx.coroutines.launch
 import ru.yandexpraktikum.add_note.domain.interactors.AddNoteUsecase
 import ru.yandexpraktikum.core.presentation.mappers.PresentationNoteMapper
 import ru.yandexpraktikum.core.presentation.model.NoteUi
+import javax.inject.Inject
 
-class AddNoteViewModel(
+class AddNoteViewModel @Inject constructor(
     private val addNoteUsecase: AddNoteUsecase,
     private val noteMapper: PresentationNoteMapper
 ): ViewModel() {

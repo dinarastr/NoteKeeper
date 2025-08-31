@@ -49,7 +49,7 @@ fun AllNotesScreen(
     val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
 
-    val notes by viewModel.allNotes.collectAsState(initial = emptyList())
+    val notes by    viewModel.allNotes.collectAsState(initial = emptyList())
     var showDialog by remember { mutableStateOf(false) }
     var noteToDelete: NoteUi? by remember { mutableStateOf(null) }
     Scaffold(

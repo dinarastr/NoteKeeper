@@ -2,8 +2,12 @@ package ru.yandexpraktikum.core.data.mappers
 
 import ru.yandexpraktikum.core.data.model.NoteEntity
 import ru.yandexpraktikum.core.domain.model.Note
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class DataNoteMapper {
+@Singleton
+
+class DataNoteMapper @Inject constructor() {
     fun mapToDomain(note: NoteEntity): Note {
         return Note(
             id = note.id,

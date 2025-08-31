@@ -8,8 +8,9 @@ import ru.yandexpraktikum.all_notes.domain.interactors.DeleteNoteUsecase
 import ru.yandexpraktikum.all_notes.domain.interactors.FetchAllNotesUsecase
 import ru.yandexpraktikum.core.presentation.mappers.PresentationNoteMapper
 import ru.yandexpraktikum.core.presentation.model.NoteUi
+import javax.inject.Inject
 
-class AllNotesViewModel(
+class AllNotesViewModel @Inject constructor(
     private val fetchAllNotesUsecase: FetchAllNotesUsecase,
     private val deleteNoteUsecase: DeleteNoteUsecase,
     private val noteMapper: PresentationNoteMapper
