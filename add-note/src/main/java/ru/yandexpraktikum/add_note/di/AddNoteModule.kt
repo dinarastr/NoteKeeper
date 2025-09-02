@@ -6,8 +6,8 @@ import ru.yandexpraktikum.add_note.domain.interactors.AddNoteUsecase
 import ru.yandexpraktikum.add_note.domain.interactors.AddNoteUsecaseImpl
 
 @Module
-abstract class AddNoteModule {
+interface AddNoteModule {
 
     @Binds
-    abstract fun bindAddNoteUsecase(impl: AddNoteUsecaseImpl): AddNoteUsecase
+    fun bindAddNoteUsecase(impl: AddNoteUsecaseImpl): AddNoteUsecase
 }

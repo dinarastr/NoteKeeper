@@ -17,9 +17,4 @@ class AppModule {
             .context(context)
             .build()
     }
-
-    @Provides
-    fun provideComponentProvider(coreDependencies: CoreDependencies): ComponentProvider {
-        return ComponentProvider(coreDependencies)
-    }
 }

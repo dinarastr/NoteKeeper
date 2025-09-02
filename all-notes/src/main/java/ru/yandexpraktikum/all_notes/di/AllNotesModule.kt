@@ -8,11 +8,11 @@ import ru.yandexpraktikum.all_notes.domain.interactors.FetchAllNotesUsecase
 import ru.yandexpraktikum.all_notes.domain.interactors.FetchAllNotesUsecaseImpl
 
 @Module
-abstract class AllNotesModule {
+interface AllNotesModule {
 
     @Binds
-    abstract fun bindFetchAllNotesUsecase(impl: FetchAllNotesUsecaseImpl): FetchAllNotesUsecase
+    fun bindFetchAllNotesUsecase(impl: FetchAllNotesUsecaseImpl): FetchAllNotesUsecase
 
     @Binds
-    abstract fun bindDeleteNoteUsecase(impl: DeleteNoteUsecaseImpl): DeleteNoteUsecase
+    fun bindDeleteNoteUsecase(impl: DeleteNoteUsecaseImpl): DeleteNoteUsecase
 }

@@ -12,18 +12,17 @@ import ru.yandexpraktikum.core.domain.repository.NotesRepository
 import javax.inject.Singleton
 
 @Module
-abstract class CoreModule {
+interface CoreModule {
 
     @Binds
     @Singleton
-    abstract fun bindNotesRepository(impl: NotesRepositoryImpl): NotesRepository
+    fun bindNotesRepository(impl: NotesRepositoryImpl): NotesRepository
 
     companion object {
         private const val DATABASE_NAME = "note_database"
 
         @Provides
         @Singleton
-        @JvmStatic
         fun provideNoteDatabase(context: Context): NoteDatabase {
             return Room.databaseBuilder(
                 context.applicationContext,
@@ -33,7 +32,6 @@ abstract class CoreModule {
         }
 
         @Provides
-        @JvmStatic
         fun provideNoteDao(database: NoteDatabase): NoteDao {
             return database.noteDao()
         }

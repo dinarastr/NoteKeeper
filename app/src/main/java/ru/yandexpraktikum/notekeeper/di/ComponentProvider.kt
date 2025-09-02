@@ -5,8 +5,9 @@ import ru.yandexpraktikum.add_note.di.DaggerAddNoteComponent
 import ru.yandexpraktikum.all_notes.di.AllNotesComponent
 import ru.yandexpraktikum.all_notes.di.DaggerAllNotesComponent
 import ru.yandexpraktikum.core.di.CoreDependencies
+import javax.inject.Inject
 
-class ComponentProvider(
+class ComponentProvider @Inject constructor(
     private val coreDependencies: CoreDependencies
 ) {
 
