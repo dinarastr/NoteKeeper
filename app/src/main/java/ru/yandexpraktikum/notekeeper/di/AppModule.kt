@@ -3,7 +3,7 @@ package ru.yandexpraktikum.notekeeper.di
 import android.content.Context
 import dagger.Module
 import dagger.Provides
-import ru.yandexpraktikum.core.di.CoreDependencies
+import ru.yandexpraktikum.core.di.CoreComponent
 import ru.yandexpraktikum.core.di.DaggerCoreComponent
 import javax.inject.Singleton
 
@@ -12,9 +12,8 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideCoreDependencies(context: Context): CoreDependencies {
-        return DaggerCoreComponent.builder()
-            .context(context)
-            .build()
+    fun provideCoreComponent(context: Context): CoreComponent {
+        return DaggerCoreComponent.factory()
+            .create(context)
     }
 }
